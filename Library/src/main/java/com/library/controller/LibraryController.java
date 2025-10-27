@@ -38,10 +38,7 @@ public class LibraryController {
     public Library getLibraryById(@PathVariable Long id) {
         return libraryService.getLibraryById(id);
     }
-//    @GetMapping("/books/all/{libraryId}")
-//    public List<Book> getAllBooksByLibraryId(@PathVariable Long libraryId) {
-//        return libraryService.getAllBooksByLibraryId(libraryId);
-//    }
+
     @GetMapping("/all-books-from-booknest")
     public List<Book> getAllBooksFromBookNest() {
         String bookNestUrl = "http://BOOKNEST/books";
