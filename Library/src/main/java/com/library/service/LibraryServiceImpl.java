@@ -29,12 +29,6 @@ public class LibraryServiceImpl implements LibraryService {
 
         return books != null ? Arrays.asList(books) : List.of(); 
     }
-//    public List<Book> getAllBooksByLibraryId(Long libraryId) {
-//        String bookServiceUrl = "http://localhost:8081/books/library/" + libraryId;
-//        Book[] books = restTemplate.getForObject(bookServiceUrl, Book[].class);
-//        return books != null ? Arrays.asList(books) : new ArrayList<>();
-//    }
-
  
     public Library getLibraryById(Long id) {
         return libraryRepo.findById(id)

@@ -18,7 +18,7 @@ import com.library.entity.Library;
 import com.library.service.LibraryService;
 
 @RestController
-@RequestMapping("/library")
+@RequestMapping("/libraryapi")
 public class LibraryController {
 
     private final LibraryService libraryService;
@@ -38,25 +38,25 @@ public class LibraryController {
     public Library getLibraryById(@PathVariable Long id) {
         return libraryService.getLibraryById(id);
     }
-
-    @GetMapping("/all-books-from-booknest")
-    public List<Book> getAllBooksFromBookNest() {
+    
+    @GetMapping("/all-books")
+    public List<Book> getAllBooks() {
         String bookNestUrl = "http://BOOKNEST/books";
         Book[] books = restTemplate.getForObject(bookNestUrl, Book[].class);
         return List.of(books);
     }
-    @GetMapping("/books/{libraryId}")
+    @GetMapping("/{libraryId}/books")
     public List<Book> getBooksByLibraryId(@PathVariable Long libraryId) {
         return libraryService.getBooksByLibraryId(libraryId);
     }
-    @PostMapping("/add")
+    @PostMapping("/create")
     public String addLibrary(@RequestBody Library library) {
         return libraryService.addLibrary(library);
     }
 
     @PutMapping("/update/{id}")
     public String updateLibrary(@PathVariable Long id, @RequestBody Library library) {
-        library.setId(id); // Ensure the ID is set
+        library.setId(id);
         return libraryService.updateLibrary(library);
     }
 

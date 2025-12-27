@@ -5,7 +5,6 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<!-- FIX: Use compatible version -->
 		<version>3.4.0</version>
 		<relativePath/>
 	</parent>
@@ -17,7 +16,6 @@
 	
 	<properties>
 		<java.version>21</java.version>
-		<!-- FIX: Use compatible Spring Cloud version -->
 		<spring-cloud.version>2024.0.0</spring-cloud.version>
 	</properties>
 	
@@ -65,8 +63,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	<!-- FIX: REMOVED EXTRA > CHARACTER -->
-
 	<build>
 		<plugins>
 			<plugin>

@@ -2,6 +2,7 @@ package com.booknest.service;
 
 import java.util.List;
 
+import com.booknest.dto.Library;
 import com.booknest.entity.Book;
 
 public interface BookService {
@@ -21,7 +22,9 @@ public interface BookService {
 	Book updateBook(Long id, Book book);
 
 	void deleteBook(Long id);
+	List<Library> getLibrary();
 
 	List<Book> getBooksByLibraryId(Long libId);
+
 
 }
