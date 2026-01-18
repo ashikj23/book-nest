@@ -11,20 +11,13 @@ public interface BookService {
 
 	Book getBookById(Long id);
 
-	List<Book> getBooksByGenre(String genre);
-
-	List<Book> getBooksByTitle(String title);
-
-	List<Book> getBooksByAuthor(String author);
-
 	Book addBook(Book book);
 
 	Book updateBook(Long id, Book book);
 
 	void deleteBook(Long id);
-	List<Library> getLibrary();
 
 	List<Book> getBooksByLibraryId(Long libId);
 
-
+	List<Library> getLibrary();
 }

@@ -2,7 +2,7 @@ package com.library.service;
 
 import java.util.List;
 
-import com.library.dto.Book;
+import com.library.dto.BookDTO;
 import com.library.entity.Library;
 
 public interface LibraryService {
@@ -17,8 +17,5 @@ public interface LibraryService {
 
 	List<Library> getAll();
 
-	List<Book> getBooksByLibraryId(Long libraryId);
-
-//	List<Book> getAllBooksByLibraryId(Long libraryId);
-
+	List<BookDTO> getBooksByLibraryId(Long libraryId);
 }

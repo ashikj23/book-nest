@@ -16,13 +16,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
 
-	  private final BookRepo bookRepo;
-	    private final RestTemplate restTemplate;
+    private final BookRepo bookRepo;
+    private final RestTemplate restTemplate;
 
     public List<Book> getAllBooks() {
         return bookRepo.findAll();
     }
-
     
     public Book getBookById(Long id) {
         return bookRepo.findById(id).orElse(null);
@@ -67,9 +66,4 @@ public class BookServiceImpl implements BookService {
 
         return library != null ?  Arrays.asList(library) : List.of(); 
 	}
-
-
-	
-
-
 }

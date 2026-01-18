@@ -3,29 +3,26 @@ package com.library.service;
 import java.util.Arrays;
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.library.dto.Book;
+import com.library.dto.BookDTO;
 import com.library.entity.Library;
 import com.library.repository.LibraryRepo;
 
 @Service
+@RequiredArgsConstructor
 public class LibraryServiceImpl implements LibraryService {
 
 	private final LibraryRepo libraryRepo;
-	    private final RestTemplate restTemplate;
-
-		public LibraryServiceImpl(LibraryRepo libraryRepo, RestTemplate restTemplate) {
-			this.libraryRepo = libraryRepo;
-			this.restTemplate = restTemplate;
-		}
-
+    private final RestTemplate restTemplate;
    
-    public List<Book> getBooksByLibraryId(Long libraryId) {
-        String bookServiceUrl = "http://BOOKNEST/books/library/" + libraryId;
+    public List<BookDTO> getBooksByLibraryId(Long libraryId) {
+    	String bookServiceUrl = "http://BOOKNEST/books-service/books/by-library/" + libraryId;
 
-        Book[] books = restTemplate.getForObject(bookServiceUrl, Book[].class);
+
+        BookDTO[] books = restTemplate.getForObject(bookServiceUrl, BookDTO[].class);
 
         return books != null ? Arrays.asList(books) : List.of(); 
     }
